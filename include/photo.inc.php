@@ -7,11 +7,13 @@
         <h3><?php echo $photo["titre"]; ?> #<?php echo $photo["categorie"]; ?></h3>
 
         <!-- Affichage des tags -->
-        <?php $liste_tags = getAllTagsByPhotos($photo["id"]); ?>
+        <?php $liste_tags = getAllTagsByPhoto($photo["id"]); ?>
         <?php if (count($liste_tags) > 0) : ?>
             <p>
                 <?php foreach ($liste_tags as $tag) : ?>
-                    # <?php echo $tag["titre"]; ?>
+                    <a href="tag.php?id=<?php echo $tag["id"]; ?>">
+                        # <?php echo $tag["titre"]; ?>
+                    </a>
                 <?php endforeach; ?>
             </p>
         <?php endif; ?>
