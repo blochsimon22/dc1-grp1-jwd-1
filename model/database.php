@@ -17,6 +17,7 @@ function getAllPhotos(): array {
                 photo.image,
                 photo.nb_likes,
                 photo.date_creation,
+                photo.description,
                 DATE_FORMAT(photo.date_creation, '%e %M %Y') AS 'date_creation_format',
                 categorie.titre AS categorie
             FROM photo
@@ -33,7 +34,17 @@ function getAllPhotos(): array {
 function getPhoto(int $id): array {
     global $connection;
 
-    $query = "SELECT * FROM photo WHERE id = :id";
+    $query = "SELECT
+                photo.id,
+                photo.titre,
+                photo.image,
+                photo.nb_likes,
+                photo.date_creation,
+                DATE_FORMAT(photo.date_creation, '%e %M %Y') AS 'date_creation_format',
+                categorie.titre AS categorie
+            FROM photo
+            INNER JOIN categorie ON categorie.id = photo.categorie_id
+            WHERE photo.id = :id";
 
     $stmt = $connection->prepare($query);
     $stmt->bindParam(":id", $id);
