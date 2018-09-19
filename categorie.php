@@ -4,10 +4,10 @@ require_once 'model/database.php';
 
 $id = $_GET["id"];
 
-$tag = getEntity("tag", $id);
-$liste_photos = getAllPhotosByTag($id);
+$categorie = getEntity("categorie", $id);
+$liste_photos = getAllPhotosByCategorie($id);
 
-getHeader($tag["titre"], "Description du tag");
+getHeader($categorie["titre"], "Description de la categorie");
 ?>
 
 <header>
@@ -18,7 +18,7 @@ getHeader($tag["titre"], "Description du tag");
 
 <main class="container">
 
-    <h1>Hashtag : <?php echo $tag["titre"]; ?></h1>
+    <h1>Hashtag : <?php echo $categorie["titre"]; ?></h1>
     
     <section id="photos">
         <div id="photos_content" class="row col_center">

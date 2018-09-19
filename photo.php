@@ -30,12 +30,6 @@ getHeader($photo["titre"], "Description de la photo");
     
     <p><?php echo $photo["description"] ?></p>
     
-    <?php foreach ($liste_tags as $tag) : ?>
-    <a href="tag.php?id="<?php echo $tag["id"] ; ?>
-        <?php echo $tag["titre"] ?>
-    </a>
-    <?php endforeach; ?>
-    
     <form method="POST" action="insert-commentaire.php">
         <textarea name="commentaire"></textarea>
         <input type="hidden" name="photo_id" value="<?php echo $id; ?>">
