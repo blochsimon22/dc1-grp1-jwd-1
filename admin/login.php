@@ -16,13 +16,13 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin">
+    <form action="index.php" method="POST" class="form-signin">
       <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
       <label for="inputEmail" class="sr-only">Adresse E-mail</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Adresse E-mail" required autofocus>
+      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Adresse E-mail" required autofocus>
       <label for="inputPassword" class="sr-only">Mot de passe</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Se souvenir de moi
